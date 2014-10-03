@@ -72,6 +72,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animation.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Characters\Ryu.cs" />
     <Compile Include="Model.cs" />

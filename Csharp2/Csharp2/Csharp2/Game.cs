@@ -22,21 +22,25 @@ namespace Csharp2
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Player p; 
+        Texture2D backgroundTexture;
+
+        Character player; 
 
         public Game()
         {
-            p = new Player(new Vector2(30,30), new Ryu());
+            player = new Ryu(new Vector2(30,138));
 
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
             //Set the window height
-            graphics.PreferredBackBufferHeight = 880;
-            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 240;
+            graphics.PreferredBackBufferWidth = 621;
 
             //Set the window title
             Window.Title = "Fighter 2";
+            
+            //this.graphics.IsFullScreen = true;
         }
 
         protected override void Initialize()
@@ -48,7 +52,9 @@ namespace Csharp2
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            p.load(Content);
+            backgroundTexture = Content.Load<Texture2D>("stages//fraserbalacastle");
+
+            player.load(Content);
         }
 
         protected override void UnloadContent()
@@ -65,6 +71,8 @@ namespace Csharp2
             // TODO: Add your update logic here
 
             base.Update(gameTime);
+
+            player.update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
@@ -72,7 +80,13 @@ namespace Csharp2
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
-            p.draw(spriteBatch);
+
+
+            Rectangle screenRectangle = new Rectangle(0, 0, 621, 240);
+            spriteBatch.Draw(backgroundTexture, screenRectangle, Color.White);
+
+            player.draw(spriteBatch);
+
             spriteBatch.End();
 
             base.Draw(gameTime);
