@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csharp2", "Csharp2\Csharp2\Csharp2.csproj", "{2CF6D1E5-9806-4821-B092-818DCE375FCB}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Csharp2Content", "Csharp2\Csharp2Content\Csharp2Content.contentproj", "{6FDE4024-0846-4A7D-A38C-A2445E868BA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CF6D1E5-9806-4821-B092-818DCE375FCB}.Debug|x86.ActiveCfg = Debug|x86
+		{2CF6D1E5-9806-4821-B092-818DCE375FCB}.Debug|x86.Build.0 = Debug|x86
+		{2CF6D1E5-9806-4821-B092-818DCE375FCB}.Release|x86.ActiveCfg = Release|x86
+		{2CF6D1E5-9806-4821-B092-818DCE375FCB}.Release|x86.Build.0 = Release|x86
+		{6FDE4024-0846-4A7D-A38C-A2445E868BA0}.Debug|x86.ActiveCfg = Debug|x86
+		{6FDE4024-0846-4A7D-A38C-A2445E868BA0}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
