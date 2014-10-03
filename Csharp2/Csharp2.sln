@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csharp2", "Csharp2\Csharp2\
 EndProject
 Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Csharp2Content", "Csharp2\Csharp2Content\Csharp2Content.contentproj", "{6FDE4024-0846-4A7D-A38C-A2445E868BA0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{668C94FF-1EE6-452A-8F0F-DD115B9116C4}"
+	ProjectSection(SolutionItems) = preProject
+		Visio Class Diagram.vsd = Visio Class Diagram.vsd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
