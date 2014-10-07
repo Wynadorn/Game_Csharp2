@@ -24,11 +24,11 @@ namespace Csharp2
 
         Texture2D backgroundTexture;
 
-        Character player; 
+        Player player;
 
         public Game()
         {
-            player = new Ryu(new Vector2(30,138));
+            player = new Player(new Ryu(new Vector2(30, 138)));
 
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";

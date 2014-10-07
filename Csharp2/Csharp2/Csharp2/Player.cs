@@ -7,15 +7,33 @@ using Csharp2.Characters;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace Csharp2
 {
-    class Player : Character
+    class Player
     {
-        public Player(Vector2 location, Model model)
+        Character character;
+
+        public Player(Character character)
         {
-            this.location = location;
-            this.model = model;
+            this.character = character;
+        }
+
+        public void load(ContentManager content)
+        {
+            character.load(content);
+        }
+
+        public void update(GameTime gameTime)
+        {
+            if(Control)
+            character.update(gameTime);
+        }
+
+        public void draw(SpriteBatch spriteBatch)
+        {
+            character.draw(spriteBatch);
         }
     }
 }

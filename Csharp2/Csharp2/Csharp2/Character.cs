@@ -14,7 +14,6 @@ namespace Csharp2
         protected int health;
         protected Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
         protected Vector2 location;
-        protected Model model;
         
         int frameCounter;
         int switchFrame = 100;
@@ -60,6 +59,8 @@ namespace Csharp2
                 }
             }
         }
+
+        protected abstract void addAnimations();
 
         #region Movement
         protected void walkLeft()

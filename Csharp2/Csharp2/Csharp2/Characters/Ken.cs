@@ -7,17 +7,17 @@ using Microsoft.Xna.Framework;
 
 namespace Csharp2.Characters
 {
-    class Ryu : Character
+    class Ken : Character
     {
         
 
         #region Constructors
-        public Ryu()
+        public Ken()
         {
             Initialize(new Vector2(0, 0));
         }
 
-        public Ryu(Vector2 location)
+        public Ken(Vector2 location)
         {
             Initialize(location);
         }
