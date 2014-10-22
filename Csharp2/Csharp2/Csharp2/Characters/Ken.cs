@@ -9,16 +9,12 @@ namespace Csharp2.Characters
 {
     class Ken : Character
     {
-        public Ken(GraphicsDeviceManager graphics)
+        public Ken(GraphicsDeviceManager graphics) : base(graphics)
         {
-            addAnimations();
-
-            this.graphics = graphics;
-
             this.health = 100;
             this.width = 43;
             this.height = 82;
-            this.speed = 2;
+            this.initialVelocity = 2;
         }
 
         protected override void addAnimations()
@@ -41,12 +37,14 @@ namespace Csharp2.Characters
                 //Current animation is walk left
                 currentAnimation = animations["walk"];
                 facingLeft = true;
+                this.velocity = initialVelocity * -1;
 
             }
             else if (!pressedActions.Contains(CharAction.Left) && pressedActions.Contains(CharAction.Right))
             {
                 currentAnimation = animations["walk"];
                 facingLeft = false;
+                this.velocity = initialVelocity;
             }
             else
             {

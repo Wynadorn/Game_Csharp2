@@ -19,11 +19,20 @@ namespace Csharp2
         protected GraphicsDeviceManager graphics;
 
         protected int health;
-        protected int speed;
+        protected int velocity;
+        protected int initialVelocity;
 
         protected bool facingLeft = false;
         protected Animation currentAnimation = null;
         protected Dictionary<string, Animation> animations = new Dictionary<string, Animation>();
+
+        protected Character(GraphicsDeviceManager graphics)
+        {
+            addAnimations();
+
+            this.graphics = graphics;
+            this.velocity = initialVelocity;
+        }
 
         public void load(ContentManager content)
         {
@@ -61,29 +70,53 @@ namespace Csharp2
                 {
                     currentFrame = 0;
                 }
-
-                
             }
 
             if (currentAnimation == animations["walk"])
             {
-                if (facingLeft)
+                location.X += velocity;
+                
+                if(!walkCollision())
                 {
-                    if(location.X-speed > 0)
+                    if(location.X < 0)
                     {
-                        location.X -= speed;
+                        location.X = 0;
                     }
-                }
-                else
-                {
-                    if(location.X+currentAnimation.SpriteWidth < graphics.PreferredBackBufferWidth)
+                    else if(location.X+currentAnimation.SpriteWidth > graphics.PreferredBackBufferWidth)
                     {
-                        location.X += speed;
+                        location.X = graphics.PreferredBackBufferWidth - currentAnimation.SpriteWidth;
                     }
                 }
             }
 
             sourceRect = new Rectangle(currentFrame*currentAnimation.SpriteWidth, 0, currentAnimation.SpriteWidth, 82);
+        }
+
+        private bool walkCollision()
+        {
+            List<CollisionObject> collisionList = CollisionObjects.getList();
+            bool collision = false;
+
+            foreach(CollisionObject collisionObject in collisionList)
+            {
+                if(collisionObject != this)
+                {
+                    if(location.Intersects(collisionObject.Location))
+                    {
+                        collision = true;
+                        if(velocity > 0)
+                        {
+                            location.X = collisionObject.Location.X - currentAnimation.SpriteWidth;
+                        }
+                        else
+                        {
+                            location.X = collisionObject.Location.X + currentAnimation.SpriteWidth;
+                        }
+                    }
+                }
+            }
+
+            return collision;
         }
 
         public void setLocation(Point location)
