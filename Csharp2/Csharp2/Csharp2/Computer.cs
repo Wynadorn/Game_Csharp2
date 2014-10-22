@@ -12,18 +12,17 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Csharp2
 {
-    class Player
+    class Computer
     {
         Character character;
         KeyboardState oldState;
         List<CharAction> pressedActions = new List<CharAction>();
 
-        public Player(Character character)
+        public Computer(Character character)
         {
             this.character = character;
-
-            character.setLocation(new Point(60, 138));
-            character.setFacingDirection(false);
+            character.setLocation(new Point(518, 138));
+            character.setFacingDirection(true);
 
             oldState = Keyboard.GetState();
         }
@@ -45,9 +44,9 @@ namespace Csharp2
             KeyboardState newState = Keyboard.GetState();
 
             Dictionary<CharAction, Keys> keyBinds = new Dictionary<CharAction, Keys>();
-            keyBinds.Add(CharAction.Left, Keys.A);
-            keyBinds.Add(CharAction.Right, Keys.D);
-            keyBinds.Add(CharAction.Down, Keys.S);
+            keyBinds.Add(CharAction.Left, Keys.Left);
+            keyBinds.Add(CharAction.Right, Keys.Right);
+            keyBinds.Add(CharAction.Down, Keys.Down);
             
 
             if(newState.IsKeyDown(keyBinds[CharAction.Left]))

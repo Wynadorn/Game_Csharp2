@@ -25,11 +25,10 @@ namespace Csharp2
         Texture2D backgroundTexture;
 
         Player player;
+        Computer cpu;
 
         public Game()
         {
-            player = new Player(new Ryu(new Vector2(30, 138)));
-
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
@@ -41,6 +40,8 @@ namespace Csharp2
             Window.Title = "Fighter 2";
             
             //this.graphics.IsFullScreen = true;
+            player = new Player(new Ryu(graphics));
+            cpu = new Computer(new Ken(graphics));
         }
 
         protected override void Initialize()
@@ -55,6 +56,7 @@ namespace Csharp2
             backgroundTexture = Content.Load<Texture2D>("stages//fraserbalacastle");
 
             player.load(Content);
+            cpu.load(Content);
         }
 
         protected override void UnloadContent()
@@ -73,6 +75,7 @@ namespace Csharp2
             base.Update(gameTime);
 
             player.update(gameTime);
+            cpu.update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
@@ -86,6 +89,7 @@ namespace Csharp2
             spriteBatch.Draw(backgroundTexture, screenRectangle, Color.White);
 
             player.draw(spriteBatch);
+            cpu.draw(spriteBatch);
 
             spriteBatch.End();
 

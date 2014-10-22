@@ -32,6 +32,16 @@ namespace Csharp2
             get{ return spriteSheet; }
         }
 
+        public int SpriteWidth
+        {
+            get{ return spriteWidth; }
+        }
+
+        public int NumberOfFrames
+        {
+            get { return numberOfFrames; }
+        }
+
         public Animation(string spriteSheet, int numberOfFrames, int spriteWidth, float updateSpeed)
         {
             this.spriteSheet = spriteSheet;
